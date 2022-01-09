@@ -1,0 +1,98 @@
+﻿@using CompanyService
+@model List<FamilyMemberRelation>
+@{
+    int count = 0;
+    var filepath = "/images/spinner.png";
+    List<FamilyMemberRelation> relations = new List<FamilyMemberRelation>();
+    List<FamilyMember> members = ViewBag.memberslist as List<FamilyMember>;
+}
+
+<h3>Household Relationships </h3>
+@{
+
+    if (members != null )
+    {
+        if (members.Count > 0)
+        {
+        <h4>Please tell us how the members of your household to related to head of the family @members[0].LastName</h4>
+        }
+        using (Html.BeginForm("Relations", "Home", new { @family = relations }, FormMethod.Post))
+        {
+
+            for (int i = 0; i < members.Count; i++)
+            {
+                if (count == 0)
+                {
+                    count++;
+                    continue;
+                }
+                <div id="banner" style="overflow: hidden;justify-content:space-around;">
+                    <div style="max-height: 20%;display: inline-block;">
+                        <input type="hidden" name="FamilyMemberId" value="@members[i].Id" />
+                        <input type="hidden" name="ApplicationId" value="@members[i].ApplicationId" />
+
+                        <h5>@string.Concat(members[i].FirstName, " ", members[i].LastName)</h5>
+                        <br />
+                        @{
+                            string image = "";
+                            if (members[i].Gender == "Male")
+                            {
+                                image = "/images/" + "male.png";
+                            }
+                            else
+                            {
+                                image = "/images/" + "female.png";
+                            }
+                            <img src="@image" alt="image" style="width:75px;height:60px" />
+                        }
+                        <br />
+
+                        <h6>Relationship to Member @string.Concat(members[0].FirstName, " ", members[0].LastName)</h6>
+                        <br />
+
+                        @Html.DropDownList("RelationName", new List<SelectListItem>()
+                         {
+                         new SelectListItem() { Text = "Father", Value = "Father" },
+                         new SelectListItem() { Text = "Mother", Value = "Mother" },
+                         new SelectListItem() { Text = "Brother", Value = "Brother" },
+                         new SelectListItem() { Text = "Sister", Value = "Sister" },
+                         new SelectListItem() { Text = "Cousin", Value = "Cousin" },
+                         new SelectListItem() { Text = "Daughter", Value = "Daughter" },
+                         new SelectListItem() { Text = "Son", Value = "Son" },
+                         new SelectListItem() { Text = "Husband", Value = "Husband" },
+                         new SelectListItem() { Text = "Spouse", Value = "Spouse" },
+
+                         }, "-select-", new { @id = "relation" })
+                        @{relations.Add(new FamilyMemberRelation()
+                            {
+                                ApplicationId = members[i].ApplicationId,
+                                FamilyMemberId = members[i].Id,
+                                RelationId = 1,
+                                RelationName = Request["relation"]
+
+                            });
+                        }
+
+                    </div>
+                </div>
+                <hr />
+                <hr />
+                <br />
+                <br />
+
+            }
+            <div>
+                @Html.ActionLink("Back", "CreateApplication", null, new { @class = "btn btn-primary" })
+                <span id="submit">
+                    <input type="submit" value="Submit" class="btn btn-primary" />
+                </span>
+            </div>
+        }
+
+    }
+}
+
+
+
+
+

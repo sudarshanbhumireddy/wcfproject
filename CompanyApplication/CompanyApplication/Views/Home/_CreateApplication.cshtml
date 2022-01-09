@@ -1,0 +1,109 @@
+﻿@model CompanyService.FamilyMember
+
+@{
+    var count = 1;
+    if (ViewBag.familycount != null)
+    {
+
+        count = (int)ViewBag.familycount ;
+
+    }
+}
+<script>
+    $(document).ready(function () {
+        /*  $("#datepicker").on("change", function () {
+
+              var selected = $(this).val();
+              $("#datepicker").val() = selected;
+              alert(selected);
+          });*/
+        $('#datepicker').datepicker({
+            autoclose: true,
+            format: "yyyy-mm-dd",
+            immediateUpdates: true,
+            todayBtn: true,
+            todayHighlight: true
+        }).datepicker("setDate", "0");
+        
+
+    });
+</script>
+
+<h4> HouseHold Member </h4>
+@count
+
+<div class="form-horizontal" id="data">
+
+    <hr />
+    @Html.ValidationSummary(true, "please fix following errors and submit", new { @class = "text-danger" })
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", @name = "fname" } })
+            @Html.ValidationMessageFor(model => model.FirstName, "*", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.MiddleName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.MiddleName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.MiddleName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.LastName, "*", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Suffix, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("Suffix", new List<SelectListItem>()
+       {
+           new SelectListItem(){ Text="Mr",Value="Mr"},
+            new SelectListItem(){ Text="Mrs",Value="Mrs"},
+       }, "-select-")
+            @Html.ValidationMessageFor(model => model.Suffix, "*", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @{ string date = "DateOfBirth" + "(mm/dd/yyyy)";
+
+            @Html.LabelFor(model => date, htmlAttributes: new { @class = "control-label col-md-2" })
+        }
+        <div class="col-md-10">
+
+            @Html.EditorFor(model => model.DateOfBirth, new { htmlAttributes = new { @class = "form-datepicker", @id = "datepicker" } })
+            @Html.ValidationMessageFor(model => model.DateOfBirth, "*", new { @class = "text-danger" })
+
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <strong>Male</strong>
+            @Html.RadioButtonFor(model => model.Gender, "Male", new { htmlAttributes = new { @class = "form-control" } })
+            <strong>Female</strong>
+            @Html.RadioButtonFor(model => model.Gender, "Female", new { htmlAttributes = new { @class = "form-control" } })
+            @*@Html.RadioButtonFor(model => model.Gender, "Male", new { htmlAttributes = new { @class = "form-control" } })
+                @Html.LabelFor(model=>model.Gender, "Male", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.RadioButtonFor(model => model.Gender, "Female", new { htmlAttributes = new { @class = "form-control" } })
+                @Html.LabelFor(model => model.Gender, "Female", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.ValidationMessageFor(model => model.Gender, "*", new { @class = "text-danger" })*@
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

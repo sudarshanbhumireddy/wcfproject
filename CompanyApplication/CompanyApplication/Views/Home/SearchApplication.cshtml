@@ -1,0 +1,90 @@
+﻿@model List<CompanyService.FamilyMember>
+
+
+<h2>User Search</h2>
+
+<hr />
+
+@using (Html.BeginForm("SearchApplication", "Home", FormMethod.Post))
+ { 
+
+    <div class="form-group">
+        @Html.Label("Application Id", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBox("ApplicationId", "", new { htmlAttributes = new { @class = "form-control" } })
+
+        </div>
+    </div>
+    <br />
+    <br />
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Search" class="btn btn-primary" id="btnsubmit" />
+        </div>
+    </div>
+
+}
+@{ if (Request.RequestType == "POST")
+    {
+        <div id="searchdata">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>@Html.DisplayName("Application Id")</th>
+                        <th>@Html.DisplayName("Full Name")</th>
+                        <th>@Html.DisplayName("DateOfBirth")</th>
+                        <th>@Html.DisplayName("Gender")</th>
+
+                        <th>Relation To Head Of the Family</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+
+                        //@Html.Partial("_UserDetails", Model[i])
+                        <tr>
+                            <td>@Html.DisplayName(Model[i].ApplicationId)</td>
+                            <td>
+                                @{ string fullname = Model[i].FirstName + " " + Model[i].LastName;
+                                    @Html.DisplayName(fullname)
+                                }
+                            </td>
+
+                            <td> @Html.DisplayName(Model[i].DateOfBirth.ToString())</td>
+                            <td>@Html.DisplayName(Model[i].Gender)</td>
+                            <td>
+                                @{
+
+                                    List<CompanyService.FamilyMemberRelation> fl = ViewBag.relations as List<CompanyService.FamilyMemberRelation>;
+                                    string relationName = null;
+                                    CompanyService.FamilyMemberRelation relation = fl.Find(x => x.FamilyMemberId == Model[i].Id);
+                                    if (i == 0) { relationName = "None"; }
+                                    else { if (relation != null) { relationName = relation.RelationName; } }
+
+                                }
+                                @if (!string.IsNullOrEmpty(relationName))
+                                {
+                                    @Html.DisplayName(relationName)
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div>
+            @{ if (Model != null)
+                {
+                    @Html.ActionLink("Edit", "Edit", new { @ApplicationId = Model[0].ApplicationId }, new { @class = "btn btn-primary" })
+                    <br />
+                    <br />
+                    @Html.ActionLink("Details", "Details", new { @ApplicationId = Model[0].ApplicationId }, new { @class = "btn btn-primary" })
+
+                }
+            }
+        </div>
+    }
+}

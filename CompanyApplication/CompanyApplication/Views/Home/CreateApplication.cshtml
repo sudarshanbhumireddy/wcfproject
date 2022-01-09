@@ -1,0 +1,34 @@
+﻿@model CompanyService.FamilyMember
+<script>
+    function ClearResults() {
+        $("#data").empty();
+    }
+</script>
+
+@{
+    var filepath = "/images/spinner.png";
+}
+<h4>Create Application</h4>
+
+<div>
+    <div id="myformdiv">
+        @using (Ajax.BeginForm("CreateAppHelper", "Home", null, new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.Replace ,LoadingElementId = "divloading" }, new { id = "myform" }))
+        {
+            @Html.Partial("_CreateApplication", Model);
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Add Member" class="btn btn-primary" />
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<div id="divloading" style="display:none;">
+    <img src="@filepath" alt="image" style="width:75px;height:60px" />
+</div>
+<div>
+    @Html.ActionLink("Back", "Index", null, new { @class = "btn btn-primary" })
+
+    @Html.ActionLink("Next", "Relations", null, new { @class = "btn btn-primary" })
+</div>
+

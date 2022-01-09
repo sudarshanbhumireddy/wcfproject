@@ -1,0 +1,13 @@
+C:\Projects\WCF\SampleApplication\CompanyService\CompanyService\bin\Debug\CompanyService.dll
+C:\Projects\WCF\SampleApplication\CompanyService\CompanyService\bin\Debug\CompanyService.pdb
+C:\Projects\WCF\SampleApplication\CompanyService\CompanyService\bin\Debug\EntityFramework.dll
+C:\Projects\WCF\SampleApplication\CompanyService\CompanyService\bin\Debug\EntityFramework.SqlServer.dll
+C:\Projects\WCF\SampleApplication\CompanyService\CompanyService\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Projects\WCF\SampleApplication\CompanyService\CompanyService\bin\Debug\EntityFramework.xml
+C:\Projects\WCF\SampleApplication\CompanyService\CompanyService\bin\Debug\EntityFramework.SqlServer.xml
+C:\Projects\WCF\SampleApplication\CompanyService\CompanyService\obj\Debug\CompanyService.csproj.CoreCompileInputs.cache
+C:\Projects\WCF\SampleApplication\CompanyService\CompanyService\obj\Debug\CompanyService.csproj.CopyComplete
+C:\Projects\WCF\SampleApplication\CompanyService\CompanyService\obj\Debug\CompanyService.dll
+C:\Projects\WCF\SampleApplication\CompanyService\CompanyService\obj\Debug\CompanyService.pdb
+C:\Projects\WCF\SampleApplication\CompanyService\CompanyService\bin\Debug\CompanyService.dll.config
+C:\Projects\WCF\SampleApplication\CompanyService\CompanyService\obj\Debug\CompanyService.csproj.AssemblyReference.cache

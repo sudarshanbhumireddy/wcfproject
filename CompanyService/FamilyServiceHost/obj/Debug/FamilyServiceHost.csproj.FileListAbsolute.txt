@@ -1,0 +1,15 @@
+C:\Projects\WCF\SampleApplication\CompanyService\FamilyServiceHost\bin\Debug\FamilyServiceHost.exe.config
+C:\Projects\WCF\SampleApplication\CompanyService\FamilyServiceHost\bin\Debug\FamilyServiceHost.exe
+C:\Projects\WCF\SampleApplication\CompanyService\FamilyServiceHost\bin\Debug\FamilyServiceHost.pdb
+C:\Projects\WCF\SampleApplication\CompanyService\FamilyServiceHost\bin\Debug\CompanyService.dll
+C:\Projects\WCF\SampleApplication\CompanyService\FamilyServiceHost\bin\Debug\EntityFramework.dll
+C:\Projects\WCF\SampleApplication\CompanyService\FamilyServiceHost\bin\Debug\CompanyService.pdb
+C:\Projects\WCF\SampleApplication\CompanyService\FamilyServiceHost\bin\Debug\EntityFramework.xml
+C:\Projects\WCF\SampleApplication\CompanyService\FamilyServiceHost\obj\Debug\FamilyServiceHost.csproj.AssemblyReference.cache
+C:\Projects\WCF\SampleApplication\CompanyService\FamilyServiceHost\obj\Debug\FamilyServiceHost.csproj.CoreCompileInputs.cache
+C:\Projects\WCF\SampleApplication\CompanyService\FamilyServiceHost\obj\Debug\FamilyServiceHost.csproj.CopyComplete
+C:\Projects\WCF\SampleApplication\CompanyService\FamilyServiceHost\obj\Debug\FamilyServiceHost.exe
+C:\Projects\WCF\SampleApplication\CompanyService\FamilyServiceHost\obj\Debug\FamilyServiceHost.pdb
+C:\Projects\WCF\SampleApplication\CompanyService\FamilyServiceHost\bin\Debug\EntityFramework.SqlServer.dll
+C:\Projects\WCF\SampleApplication\CompanyService\FamilyServiceHost\bin\Debug\EntityFramework.SqlServer.xml
+C:\Projects\WCF\SampleApplication\CompanyService\FamilyServiceHost\bin\Debug\CompanyService.dll.config
